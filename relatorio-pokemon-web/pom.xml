@@ -8,7 +8,7 @@
 		<version>3.1.0</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.lucianoortizsilva.reports</groupId>
+	<groupId>com.lucianoortizsilva.relatorio</groupId>
 	<artifactId>relatorio-pokemon-web</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>relatorio-pokemon-web</name>
@@ -33,6 +33,11 @@
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.32</version>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>

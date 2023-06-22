@@ -24,9 +24,9 @@ hs_err_pid*
 replay_pid*
 
 
-relatorio-pokemon-jaspersoft/.classpath
-relatorio-pokemon-jaspersoft/.project
-relatorio-pokemon-jaspersoft/*.settings
+#relatorio-pokemon-jaspersoft/.classpath
+#relatorio-pokemon-jaspersoft/.project
+#relatorio-pokemon-jaspersoft/*.settings
 relatorio-pokemon-web/target/*
 relatorio-pokemon-web/.classpath
 relatorio-pokemon-web/.factorypath
