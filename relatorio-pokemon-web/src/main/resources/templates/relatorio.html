@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Relatório</title>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"> 
+</head>
+
+<body>
+	
+	
+	<h2 style="text-align: center;">Pokemons</h2>
+	<form th:action="@{/buscar/pokemons}" method="get">
+		<input type="text" id="nome" name="nome" placeholder="Pokemon">
+		<button type="submit">Buscar</button>										
+	</form>
+	
+	<br>
+	
+	<table>
+		<thead>
+			<th>POKEMON</th>
+			<th>HP</th>
+			<th>VELOCIDADE</th>
+			<th>ATAQUE</th>
+			<th>DEFESA</th>
+			<th></th>
+		</thead>
+		<tbody>
+			<tr th:each="f : ${pokemons}">
+				<td th:text="${f.get('nome')}" align="left"></td>			
+				<td th:text="${f.get('hp')}" align="center"></td>
+				<td th:text="${f.get('velocidade')}" align="center"></td>
+				<td th:text="${f.get('ataque')}" align="center"></td>
+				<td th:text="${f.get('defesa')}" align="center"></td>
+				<td align="center" class="highlight">
+					<a th:href="@{/relatorio/pdf/jr19/19(idFuncionario=${f.get('id')})}">download</a>
+				</td>
+			</tr>
+		</tbody>	
+	</table>
+	
+		
+</body>
+
+</html>

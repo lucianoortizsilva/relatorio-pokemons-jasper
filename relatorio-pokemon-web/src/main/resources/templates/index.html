@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Pokémon GO</title>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        a {
+			font-family: Roboto;
+			font-size: 30px;
+			font-style: italic;
+			text-decoration: none;
+		}
+    </style>
+</head>
+
+<body>
+    <div>
+		<img th:src="@{/images/pokemon.png}" height="500px" width="420px"/>	
+	</div>
+    <div>
+		<a th:href="@{/relatorio}">GO</a>
+	</div>	
+</body>
+
+</html>

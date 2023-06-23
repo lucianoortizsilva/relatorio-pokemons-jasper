@@ -18,10 +18,8 @@ import com.lucianoortizsilva.relatorio.dto.PokemonDTO;
 import com.lucianoortizsilva.relatorio.entity.Pokemon;
 import com.lucianoortizsilva.relatorio.repository.PokemRepository;
 
-import jakarta.annotation.PostConstruct;
-
 @Configuration
-public class PokemomDadosConfig {
+public class PreparaBaseDadosInicial {
 
 	private static final String DIRETORIO_IMG = "classpath:db/data/img/";
 	private static final String SUFIXO_IMG = ".png";
@@ -41,7 +39,7 @@ public class PokemomDadosConfig {
 	@Autowired
 	private PokemRepository repository;
 
-	@PostConstruct
+	//@PostConstruct
 	public void init() throws IOException {
 		final List<PokemonDTO> pokemons = getInserts(resourceLoader);
 		for (final PokemonDTO pokemon : pokemons) {
