@@ -1,8 +1,11 @@
-package com.lucianoortizsilva.relatorio.config;
+package com.lucianoortizsilva.relatorio.entity;
 
 import java.io.Serializable;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
@@ -13,12 +16,13 @@ import lombok.EqualsAndHashCode;
 @Entity
 @Table(name = "POKEMON")
 @EqualsAndHashCode
-public class PokemonEntity implements Serializable {
+public class Pokemon implements Serializable {
 
 	private static final long serialVersionUID = -5318686093175951277L;
 
-	@EqualsAndHashCode.Include
 	@Id
+	@EqualsAndHashCode.Include
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
 	private String tipo1;
@@ -33,6 +37,7 @@ public class PokemonEntity implements Serializable {
 	private Integer geracao;
 	private Boolean lendario;
 	@Lob
+	@Column(name = "foto", columnDefinition = "BLOB NOT NULL")
 	private byte[] foto;
 
-}
+}	

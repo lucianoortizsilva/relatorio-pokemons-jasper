@@ -14,6 +14,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 
+import com.lucianoortizsilva.relatorio.dto.PokemonDTO;
+import com.lucianoortizsilva.relatorio.entity.Pokemon;
 import com.lucianoortizsilva.relatorio.repository.PokemRepository;
 
 import jakarta.annotation.PostConstruct;
@@ -43,7 +45,7 @@ public class PokemomDadosConfig {
 	public void init() throws IOException {
 		final List<PokemonDTO> pokemons = getInserts(resourceLoader);
 		for (final PokemonDTO pokemon : pokemons) {
-			var entity = new PokemonEntity();
+			var entity = new Pokemon();
 			BeanUtils.copyProperties(pokemon, entity);
 			entity.setFoto(getImage(entity.getNome()));
 			repository.save(entity);

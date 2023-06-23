@@ -1,4 +1,4 @@
-package com.lucianoortizsilva.relatorio.config;
+package com.lucianoortizsilva.relatorio.dto;
 
 public record PokemonDTO(Integer id
 					, String nome
