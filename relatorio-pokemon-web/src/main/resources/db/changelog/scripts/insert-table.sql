@@ -1,6 +1,6 @@
-1,Bulbasaur,Grass,Poison,318,45,49,49,65,65,45,1,False,?
-2,Ivysaur,Grass,Poison,405,60,62,63,80,80,60,1,False,?
-3,Venusaur,Grass,Poison,525,80,82,83,100,100,80,1,False,?
+1,Bulbasaur,Grass,Poison,318,45,39,42,65,37,63,1,False,?
+2,Ivysaur,Grass,Poison,405,60,62,63,81,84,77,1,False,?
+3,Venusaur,Grass,Poison,525,80,82,83,100,99,69,1,False,?
 4,VenusaurMega Venusaur,Grass,Poison,625,80,100,123,122,120,80,1,False,?
 5,Charmander,Fire,,309,39,52,43,60,50,65,1,False,?
 6,Charmeleon,Fire,,405,58,64,58,80,65,80,1,False,?

@@ -11,12 +11,13 @@ import jakarta.persistence.Tuple;
 
 public interface PokemRepository extends JpaRepository<Pokemon, Integer> {
 
-	@Query("select p.id as id, "
-			+ "p.nome as nome, " 
-			+ "p.hp as hp, "
+	@Query("select "
+			+ "p.id         as id, "
+			+ "p.nome       as nome, " 
+			+ "p.hp         as hp, "
 			+ "p.velocidade as velocidade, "
-			+ "p.ataque as ataque, "
-			+ "p.defesa as defesa "
+			+ "p.ataque     as ataque, "
+			+ "p.defesa     as defesa "
 			+ "FROM Pokemon p " 
 			+ "WHERE p.nome like %:nome% ")
 	List<Tuple> findPokemonsByNome(String nome);
