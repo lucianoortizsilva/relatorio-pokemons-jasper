@@ -45,15 +45,9 @@
 			<column name="lendario" type="BIT">
 				<constraints nullable="false" />
 			</column>
+			<column name="foto" type="longblob">
+				<constraints nullable="true" />
+			</column>
 		</createTable>
-	</changeSet>
-	<changeSet id="20230621_2" author="ortiz">
-		<comment>Insert dados POKEMON</comment>
-		<loadData tableName="POKEMON" file="classpath:db/data/pokemon.csv">
-			<column name="nome" type="STRING" />
-			<column name="tp_1" type="STRING" />
-			<column name="tp_2" type="STRING" />
-			<column name="total" type="INTEGER" />
-		</loadData>
 	</changeSet>
 </databaseChangeLog>
