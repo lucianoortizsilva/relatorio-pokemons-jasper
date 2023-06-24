@@ -30,7 +30,7 @@ public class RelatorioController {
 	}
 	
 	@GetMapping("/pokemons/buscar")
-	public ModelAndView buscarFuncionariosPorNome(@RequestParam("nome") String nome) {
+	public ModelAndView buscarPokemonsPorNome(@RequestParam("nome") String nome) {
 		return new ModelAndView("relatorio", "pokemons", this.repository.findPokemonsByNome(nome));
 	}
 	

@@ -12,7 +12,7 @@
 <body>
 	
 	
-	<h2 style="text-align: center;">Pokemons</h2>
+	<h2 style="text-align: center;">POKEMONS</h2>
 	<form th:action="@{/pokemons/buscar}" method="get">
 		<input type="text" id="nome" name="nome" placeholder="Pokemon">
 		<button type="submit">Buscar</button>										
@@ -21,7 +21,7 @@
 	<br>
 	
 	<table>
-		<thead>
+		<thead th:if="${not #lists.isEmpty(pokemons)}">
 			<th>POKEMON</th>
 			<th>HP</th>
 			<th>VELOCIDADE</th>
@@ -37,7 +37,7 @@
 				<td th:text="${f.get('ataque')}" align="center"></td>
 				<td th:text="${f.get('defesa')}" align="center"></td>
 				<td align="center" class="highlight">
-					<a th:href="@{/pokemons/card/pdf(id=${f.get('id')})}">download</a>
+					<a th:href="@{/pokemons/card/pdf(id=${f.get('id')})}">ver</a>
 				</td>
 			</tr>
 		</tbody>
