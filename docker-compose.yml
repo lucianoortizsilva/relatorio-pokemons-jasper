@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  
+  service-mysql-db-1:
+    container_name: container-mysqldb
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    volumes:
+      - .docker/db-1:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: pokemondb
+      MYSQL_USER: ortiz
+      MYSQL_PASSWORD: 12345
+      MYSQL_ROOT_PASSWORD: 12345
+      MYSQL_ALLOW_EMPTY_PASSWORD: false
+      MYSQL_RANDOM_ROOT_PASSWORD: false
+    networks:
+      - network
+      
+volumes:
+  .docker:
+
+networks:
+  network: {}
