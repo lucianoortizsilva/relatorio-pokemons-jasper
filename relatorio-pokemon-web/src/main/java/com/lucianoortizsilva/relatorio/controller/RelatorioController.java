@@ -35,12 +35,21 @@ public class RelatorioController {
 		return this.repository.findTiposDePokemons();
 	}
 	
-	@GetMapping("/pokemons/pdf")
-	public void gerarRelatorio(@RequestParam(name = "tipo", required = false) String tipo, HttpServletResponse response) throws JRException, IOException {
-		service.addParams("TIPO_POKEMON", tipo);
+	@GetMapping("/pokemons/pdf/view")
+	public void view(@RequestParam(name = "tipo", required = false) String tipo, HttpServletResponse response) throws JRException, IOException {
+		service.addParams("TIPO_POKEMON", tipo.isEmpty() ? null : tipo);
 		byte[] bytes = service.exportarPDF("pokemons");
 		response.setContentType(MediaType.APPLICATION_PDF_VALUE);
 		response.setHeader("Content-disposition", "inline;filename=pokemons.pdf");
+		response.getOutputStream().write(bytes);
+	}
+	
+	@GetMapping("/pokemons/pdf/download")
+	public void download(@RequestParam(name = "tipo", required = false) String tipo, HttpServletResponse response) throws JRException, IOException {
+		service.addParams("TIPO_POKEMON", tipo.isEmpty() ? null : tipo);
+		byte[] bytes = service.exportarPDF("pokemons");
+		response.setContentType(MediaType.APPLICATION_PDF_VALUE);
+		response.setHeader("Content-disposition", "attachment;filename=pokemons.pdf");
 		response.getOutputStream().write(bytes);
 	}
 

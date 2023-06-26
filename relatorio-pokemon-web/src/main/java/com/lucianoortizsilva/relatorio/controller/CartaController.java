@@ -35,12 +35,21 @@ public class CartaController {
 		return new ModelAndView(pageHtml, "pokemons", this.repository.findPokemonsByNome(nome));
 	}
 
-	@GetMapping("/pokemons/card/pdf")
-	public void gerarCard(@RequestParam("id") Integer id, HttpServletResponse response) throws JRException, IOException {
+	@GetMapping("/pokemons/card/pdf/view")
+	public void view(@RequestParam("id") Integer id, HttpServletResponse response) throws JRException, IOException {
 		service.addParams("ID", id);
 		byte[] bytes = service.exportarPDF("pokemon-card");
 		response.setContentType(MediaType.APPLICATION_PDF_VALUE);
 		response.setHeader("Content-disposition", "inline;filename=pokemon-" + id + ".pdf");
+		response.getOutputStream().write(bytes);
+	}
+	
+	@GetMapping("/pokemons/card/pdf/download")
+	public void download(@RequestParam("id") Integer id, HttpServletResponse response) throws JRException, IOException {
+		service.addParams("ID", id);
+		byte[] bytes = service.exportarPDF("pokemon-card");
+		response.setContentType(MediaType.APPLICATION_PDF_VALUE);
+		response.setHeader("Content-disposition", "attachment;filename=pokemons.pdf");
 		response.getOutputStream().write(bytes);
 	}
 	

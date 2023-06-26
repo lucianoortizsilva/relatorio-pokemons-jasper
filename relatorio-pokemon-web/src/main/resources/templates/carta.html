@@ -37,7 +37,8 @@
 				<td th:text="${f.get('ataque')}" align="center"></td>
 				<td th:text="${f.get('defesa')}" align="center"></td>
 				<td align="center" class="highlight">
-					<a th:href="@{/pokemons/card/pdf(id=${f.get('id')})}">ver</a>
+					<a th:href="@{/pokemons/card/pdf/view(id=${f.get('id')})}">view</a>
+					<a th:href="@{/pokemons/card/pdf/download(id=${f.get('id')})}">download</a>
 				</td>
 			</tr>
 		</tbody>

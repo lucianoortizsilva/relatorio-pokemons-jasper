@@ -13,12 +13,25 @@
 	
 	
 	<h2 style="text-align: center;">RELATORIO POKEMONS</h2>
-	<form th:action="@{/pokemons/pdf}" method="get">
+	
+	<form id="view" th:action="@{/pokemons/pdf/view}" method="get">
 		<select id="tipo" name="tipo">
 			<option value="">Selecione o Tipo</option>
-			<option th:each="tipo : ${tipos}" th:value="${tipo}" th:text="${tipo}">Selecione o Tipo</option>
+			<option th:each="tipo : ${tipos}" th:value="${tipo}" th:text="${tipo}">Todos tipos</option>
 		</select>
-		<button type="submit">Buscar</button>
+		<div>
+			<button type="submit">ver PDF</button>	
+		</div>
+	</form>
+	
+	<form id="download" th:action="@{/pokemons/pdf/download}" method="get">
+		<select id="tipo" name="tipo">
+			<option value="">Selecione o Tipo</option>
+			<option th:each="tipo : ${tipos}" th:value="${tipo}" th:text="${tipo}">Todos tipos</option>
+		</select>
+		<div>
+			<button type="submit">download PDF</button>	
+		</div>
 	</form>
 	
 </body>

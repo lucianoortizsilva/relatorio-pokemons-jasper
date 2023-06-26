@@ -2,8 +2,11 @@ form {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin-bottom: 5px;
 }
-
+button {
+	cursor: pointer;
+}
 /* Definir estilos gerais para a tabela */
 table {
 	margin-left: auto;
