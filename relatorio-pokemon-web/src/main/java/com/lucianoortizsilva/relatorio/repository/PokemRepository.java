@@ -22,4 +22,12 @@ public interface PokemRepository extends JpaRepository<Pokemon, Integer> {
 			+ "WHERE p.nome like %:nome% ")
 	List<Tuple> findPokemonsByNome(String nome);
 
+	
+	
+	@Query("select distinct "
+			+ "p.tipo1     as tipo "
+			+ "FROM Pokemon p "
+			+ "Order by p.tipo1 ASC")
+	List<String> findTiposDePokemons();
+
 }

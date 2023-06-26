@@ -20,4 +20,21 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>net.sf.jasperreports.nature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>pokemon-card_1.jasper</name>
+			<type>1</type>
+			<location>C:/dev/workspace_pessoal/relatorio-pokemons-jasper/relatorio-pokemon-web/src/main/resources/jasper/pokemon-card.jasper</location>
+		</link>
+		<link>
+			<name>pokemon-card_2.jasper</name>
+			<type>1</type>
+			<location>C:/dev/workspace_pessoal/relatorio-pokemons-jasper/relatorio-pokemon-web/src/main/resources/jasper/pokemon-card.jasper</location>
+		</link>
+		<link>
+			<name>pokemon-card_3.jasper</name>
+			<type>1</type>
+			<location>C:/dev/workspace_pessoal/relatorio-pokemons-jasper/relatorio-pokemon-web/src/main/resources/jasper/pokemon-card.jasper</location>
+		</link>
+	</linkedResources>
 </projectDescription>

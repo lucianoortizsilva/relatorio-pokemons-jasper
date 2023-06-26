@@ -9,5 +9,6 @@
 	<classpathentry exported="true" kind="con" path="com.jaspersoft.server.JRS_CONTAINER"/>
 	<classpathentry kind="lib" path="lib/javax.xml.bind.jar"/>
 	<classpathentry kind="lib" path="lib/mysql-connector-j-8.0.32.jar"/>
+	<classpathentry kind="lib" path="lib/mysql-connector-java-8.0.26.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
