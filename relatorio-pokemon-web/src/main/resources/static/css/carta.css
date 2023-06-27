@@ -3,14 +3,12 @@ body {
 	justify-content: center;
 	align-items: center;
 	margin: 0;
-	background-image: url(../images/fundo.jpg);
-	background-repeat: no-repeat;
-	background-position-x: left;
-	background-attachment: fixed;
+	background-color: #080808;
+	height: 100vh;
 }
 
 h2 {
-	color: #000;
+	color: #FFF;
 }
 
 form {
@@ -34,6 +32,8 @@ table {
 	font-family: Arial, sans-serif;
 	font-size: 14px;
 	color: #333;
+	z-index: 2;
+	background-color: #FFF;
 }
 
 /* Estilo para o cabeçalho da tabela */
@@ -74,4 +74,55 @@ tbody td a {
 	display: inline-block;
 	text-align: center;
 	color: #000;
+}
+
+.pikachu_background {
+	height: 420px;
+	width: 544px;
+	background-image: url(../images/pikachu_recortado.png);
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	z-index: 1;
+}
+
+.eye {
+	display: flex;
+	width: 60px;
+	height: 60px;
+	position: absolute;
+	bottom: 60px;
+	background: #fff;
+	border-radius: 50%;
+}
+
+.eye-left {
+	right: 170px;
+}
+
+.eye-right {
+	right: 26px;
+}
+
+.eye-inner {
+	position: relative;
+	display: inline-block;
+	border-radius: 50%;
+	width: 52px;
+	height: 52px;
+	background-color: black;
+	border-radius: 50%;
+	margin-left: 4px;
+	margin-top: 4px;
+}
+
+.eye-inner:after {
+	position: absolute;
+	top: 2px;
+	left: 10px;
+	width: 20px;
+	height: 20px;
+	background: white;
+	border-radius: 50%;
+	content: ' ';
 }

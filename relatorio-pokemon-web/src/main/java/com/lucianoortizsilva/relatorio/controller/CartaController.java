@@ -29,13 +29,13 @@ public class CartaController {
 		return "carta";
 	}
 
-	@GetMapping("/pokemons")
+	@GetMapping("/carta/pokemons")
 	public ModelAndView buscarPokemonsPorNome(@RequestParam("nome") String nome) {
 		final String pageHtml = "carta";
 		return new ModelAndView(pageHtml, "pokemons", this.repository.findPokemonsByNome(nome));
 	}
 
-	@GetMapping("/pokemons/card/pdf/view")
+	@GetMapping("/carta/pokemons/card/pdf/view")
 	public void view(@RequestParam("id") Integer id, HttpServletResponse response) throws JRException, IOException {
 		service.addParams("ID", id);
 		byte[] bytes = service.exportarPDF("pokemon-card");
@@ -44,7 +44,7 @@ public class CartaController {
 		response.getOutputStream().write(bytes);
 	}
 	
-	@GetMapping("/pokemons/card/pdf/download")
+	@GetMapping("/carta/pokemons/card/pdf/download")
 	public void download(@RequestParam("id") Integer id, HttpServletResponse response) throws JRException, IOException {
 		service.addParams("ID", id);
 		byte[] bytes = service.exportarPDF("pokemon-card");

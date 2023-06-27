@@ -6,21 +6,21 @@
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	<link rel="stylesheet" type="text/css" th:href="@{/css/carta.css}"> 
+	<link rel="stylesheet" type="text/css" th:href="@{/css/carta.css}">
 </head>
 
-<body>
-	
-	
+<body class="container">
+
+
 	<h2 style="text-align: center;">CARTA POKEMONS</h2>
-	<form th:action="@{/pokemons}" method="get">
+	<form th:action="@{/carta/pokemons}" method="get">
 		<input type="text" id="nome" name="nome" placeholder="Pokemon">
 		<button type="submit">Buscar</button>
-		<a th:href="@{/}" style="margin-left: 10px;">voltar</a>										
+		<a th:href="@{/}" style="margin-left: 10px;">voltar</a>
 	</form>
-	
+
 	<br>
-	
+
 	<table>
 		<thead th:if="${not #lists.isEmpty(pokemons)}">
 			<th>POKEMON</th>
@@ -32,20 +32,52 @@
 		</thead>
 		<tbody>
 			<tr th:each="f : ${pokemons}">
-				<td th:text="${f.get('nome')}" align="left"></td>			
+				<td th:text="${f.get('nome')}" align="left"></td>
 				<td th:text="${f.get('hp')}" align="center"></td>
 				<td th:text="${f.get('velocidade')}" align="center"></td>
 				<td th:text="${f.get('ataque')}" align="center"></td>
 				<td th:text="${f.get('defesa')}" align="center"></td>
 				<td align="center" class="highlight">
-					<a th:href="@{/pokemons/card/pdf/view(id=${f.get('id')})}">visualizar PDF</a>
-					<a th:href="@{/pokemons/card/pdf/download(id=${f.get('id')})}">download PDF</a>
+					<a th:href="@{/carta/pokemons/card/pdf/view(id=${f.get('id')})}">visualizar PDF</a>
+					<a th:href="@{/carta/pokemons/card/pdf/download(id=${f.get('id')})}">download PDF</a>
 				</td>
 			</tr>
 		</tbody>
-			
+
 	</table>
-		
+
+	<div class="pikachu_background">
+		<div class="eye eye-left">
+			<div class="eye-inner"></div>
+		</div>
+		<div class="eye eye-right">
+			<div class="eye-inner"></div>
+		</div>
+	</div>
+
+	<script>
+		const container = document.querySelector('.container');
+		container.addEventListener('mousemove', (e) => {
+			const eyes = document.querySelectorAll('.eye');
+			[].forEach.call(eyes, function (eye) {
+				// Get the mouse position on the horizontal axis
+				let mouseX = eye.getBoundingClientRect().right;
+				// If it's the left eye we need the left offset instead the right
+				if (eye.classList.contains('eye-left')) {
+					mouseX = eye.getBoundingClientRect().left;
+				}
+				// Now we also need the vertical offset
+				let mouseY = eye.getBoundingClientRect().top;
+				// Now, we are going to calculate the radian value of the offset between the mouse and the eye
+				let radianDegrees = Math.atan2(e.pageX - mouseX, e.pageY - mouseY);
+				// Let's convert this into a degree-based value so we can use it in CSS
+				let rotationDegrees = radianDegrees * (180 / Math.PI) * -1 + 180;
+				// Now, all we have to do is add this degree to our eye!
+				eye.style.transform = `rotate(${rotationDegrees}deg)`;
+			});
+		});		
+	</script>
+
 </body>
 
 </html>
