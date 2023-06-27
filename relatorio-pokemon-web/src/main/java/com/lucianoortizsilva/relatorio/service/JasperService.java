@@ -11,10 +11,18 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.export.HtmlExporter;
+import net.sf.jasperreports.engine.export.HtmlResourceHandler;
+import net.sf.jasperreports.export.SimpleExporterInput;
+import net.sf.jasperreports.export.SimpleHtmlExporterOutput;
+import net.sf.jasperreports.j2ee.servlets.ImageServlet;
+import net.sf.jasperreports.web.util.WebHtmlResourceHandler;
 
 @Service
 public class JasperService {
@@ -45,6 +53,26 @@ public class JasperService {
 		JasperPrint print = JasperFillManager.fillReport(is, params, connection);
 		bytes = JasperExportManager.exportReportToPdf(print);
 		return bytes;
+	}
+	
+
+	public HtmlExporter exportarHTML(String filename, HttpServletRequest request, HttpServletResponse response) {
+		HtmlExporter htmlExporter = null;
+		try {
+			final Resource resource = resourceLoader.getResource(JASPER_DIRETORIO + filename+ JASPER_SUFIXO);
+			final InputStream is = resource.getInputStream();
+			final JasperPrint print = JasperFillManager.fillReport(is, params, connection);
+			htmlExporter = new HtmlExporter();
+			htmlExporter.setExporterInput(new SimpleExporterInput(print));
+			final SimpleHtmlExporterOutput htmlExporterOutput = new SimpleHtmlExporterOutput(response.getWriter());
+			final HtmlResourceHandler resourceHandler = new WebHtmlResourceHandler(request.getContextPath() + "/image/servlet?image={0}");
+			htmlExporterOutput.setImageHandler(resourceHandler);
+			htmlExporter.setExporterOutput(htmlExporterOutput);
+			request.getSession().setAttribute(ImageServlet.DEFAULT_JASPER_PRINT_SESSION_ATTRIBUTE, print);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return htmlExporter;
 	}
 
 }

@@ -20,7 +20,7 @@
 			<option th:each="tipo : ${tipos}" th:value="${tipo}" th:text="${tipo}">Todos tipos</option>
 		</select>
 		<div>
-			<button type="submit">ver PDF</button>	
+			<button type="submit">visualizar PDF</button>	
 		</div>
 	</form>
 	
@@ -31,6 +31,16 @@
 		</select>
 		<div>
 			<button type="submit">download PDF</button>	
+		</div>
+	</form>
+	
+	<form id="html" th:action="@{/pokemons/html}" method="get">
+		<select id="tipo" name="tipo">
+			<option value="">Selecione o Tipo</option>
+			<option th:each="tipo : ${tipos}" th:value="${tipo}" th:text="${tipo}">Todos tipos</option>
+		</select>
+		<div>
+			<button type="submit">visualizar HTML</button>	
 		</div>
 	</form>
 	

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.lucianoortizsilva.relatorio.repository.PokemRepository;
 import com.lucianoortizsilva.relatorio.service.JasperService;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import net.sf.jasperreports.engine.JRException;
 
@@ -51,6 +52,14 @@ public class RelatorioController {
 		response.setContentType(MediaType.APPLICATION_PDF_VALUE);
 		response.setHeader("Content-disposition", "attachment;filename=pokemons.pdf");
 		response.getOutputStream().write(bytes);
+	}
+	
+
+	@GetMapping("/pokemons/html")
+	public void exibirRelatorio19HTML(@RequestParam(name = "tipo", required = false) String tipo, HttpServletRequest request, HttpServletResponse response) throws JRException, IOException {
+		response.setContentType(MediaType.TEXT_HTML_VALUE);
+		service.addParams("TIPO_POKEMON", tipo.isEmpty() ? null : tipo);
+		service.exportarHTML("pokemons", request, response).exportReport();
 	}
 
 }
