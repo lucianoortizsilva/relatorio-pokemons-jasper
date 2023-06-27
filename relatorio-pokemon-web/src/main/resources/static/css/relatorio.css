@@ -1,12 +1,36 @@
+body {
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+	background-image: url(../images/fundo.jpg);
+	background-repeat: no-repeat;
+}
+
+h2 {
+	color: #FFF;
+}
+
+a {
+	color: #FFF;
+}
+
+div {
+	display: flex;
+	justify-content: center;
+}
+
 form {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	margin-bottom: 5px;
 }
+
 button {
 	cursor: pointer;
 }
+
 /* Definir estilos gerais para a tabela */
 table {
 	margin-left: auto;

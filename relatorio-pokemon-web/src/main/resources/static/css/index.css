@@ -1,0 +1,26 @@
+body {
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+	background-image: url(../images/fundo.jpg);
+	background-repeat: no-repeat;
+}
+
+a {
+	font-family: Roboto;
+	font-size: 24px;
+	font-style: italic;
+	text-decoration: none;
+	color: #FFF;
+}
+
+span {
+	color: #FFF;
+}
+
+div {
+	display: flex;
+	justify-content: center;
+	margin-top: 50%;
+}

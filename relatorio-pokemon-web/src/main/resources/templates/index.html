@@ -7,34 +7,14 @@
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	<style>
-		body {
-			display: grid;
-			justify-content: center;
-			align-items: center;
-			margin: 0;
-			background-image: url(images/fundo.jpg);
-			background-repeat: no-repeat;
-		}
-		a {
-			font-family: Roboto;
-			font-size: 24px;
-			font-style: italic;
-			text-decoration: none;
-			color: #FFF;
-		}
-		span {
-			color: #FFF;
-		}
-		div {
-			margin-top: 50%;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
 </head>
 
 <body>
 	<div>
-		<a th:href="@{/relatorio}">RELATÓRIO POKEMONS</a> <span>|</span>
+		<a th:href="@{/relatorio}">RELATÓRIO POKEMONS</a>
+	</div>
+	<div>
 		<a th:href="@{/carta}">CARTA POKEMONS</a>
 	</div>
 </body>
