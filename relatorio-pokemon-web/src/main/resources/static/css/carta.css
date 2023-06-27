@@ -5,6 +5,8 @@ body {
 	margin: 0;
 	background-image: url(../images/fundo.jpg);
 	background-repeat: no-repeat;
+	background-position-x: left;
+	background-attachment: fixed;
 }
 
 h2 {
