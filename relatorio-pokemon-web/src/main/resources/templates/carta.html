@@ -15,7 +15,8 @@
 	<h2 style="text-align: center;">CARTA POKEMONS</h2>
 	<form th:action="@{/pokemons}" method="get">
 		<input type="text" id="nome" name="nome" placeholder="Pokemon">
-		<button type="submit">Buscar</button>										
+		<button type="submit">Buscar</button>
+		<a th:href="@{/}" style="margin-left: 10px;">voltar</a>										
 	</form>
 	
 	<br>
@@ -44,7 +45,6 @@
 		</tbody>
 			
 	</table>
-	
 		
 </body>
 
