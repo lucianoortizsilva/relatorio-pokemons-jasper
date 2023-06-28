@@ -2,45 +2,27 @@
 <html lang="pt" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<title>Relatório</title>
+	<title>Pokemon Relatório</title>
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	<link rel="stylesheet" type="text/css" th:href="@{/css/relatorio.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
 </head>
 
 <body class="container">
 
 
-	<h2 style="text-align: center;">RELATORIO POKEMONS</h2>
+	<h2 style="text-align: center;">Relatório com dados de pokemon</h2>
 
-	<form id="view" th:action="@{/pokemons/pdf/view}" method="get">
+	<form method="get">
 		<select id="tipo" name="tipo">
 			<option value="">Selecione o Tipo</option>
 			<option th:each="tipo : ${tipos}" th:value="${tipo}" th:text="${tipo}">Todos tipos</option>
 		</select>
 		<div>
-			<button type="submit">visualizar PDF</button>
-		</div>
-	</form>
-
-	<form id="download" th:action="@{/pokemons/pdf/download}" method="get">
-		<select id="tipo" name="tipo">
-			<option value="">Selecione o Tipo</option>
-			<option th:each="tipo : ${tipos}" th:value="${tipo}" th:text="${tipo}">Todos tipos</option>
-		</select>
-		<div>
-			<button type="submit">download PDF</button>
-		</div>
-	</form>
-
-	<form id="html" th:action="@{/pokemons/html}" method="get">
-		<select id="tipo" name="tipo">
-			<option value="">Selecione o Tipo</option>
-			<option th:each="tipo : ${tipos}" th:value="${tipo}" th:text="${tipo}">Todos tipos</option>
-		</select>
-		<div>
-			<button type="submit">visualizar HTML</button>
+			<button type="submit" class="btn-pdf-view" th:formaction="@{/pokemons/pdf/view}">visualizar PDF</button>
+			<button type="submit" class="btn-pdf-download" th:formaction="@{/pokemons/pdf/download}">download PDF</button>
+			<button type="submit" class="btn-html-view" th:formaction="@{/pokemons/html}">visualizar HTML</button>
 		</div>
 	</form>
 
